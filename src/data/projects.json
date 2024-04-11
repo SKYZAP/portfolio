@@ -1,0 +1,17 @@
+[
+  {
+    "title": "MiniShop",
+    "description": "E-commerce Platform",
+    "tech": ["Next.js", "Nest.js"]
+  },
+  {
+    "title": "Revue",
+    "description": "Social Media Platform",
+    "tech": ["Next.js", "Nest.js"]
+  },
+  {
+    "title": "LoopFoods",
+    "description": "Food Delivery WebApp",
+    "tech": ["tRPC", "Next.js", "Tailwind"]
+  }
+]
