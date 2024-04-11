@@ -7,6 +7,7 @@ const config: Config = {
     "./src/containers/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  important: "#root",
   theme: {
     extend: {
       backgroundImage: {
@@ -17,5 +18,8 @@ const config: Config = {
     },
   },
   plugins: [],
+  corePlugins: {
+    preflight: false,
+  },
 };
 export default config;

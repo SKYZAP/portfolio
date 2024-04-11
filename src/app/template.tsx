@@ -145,6 +145,7 @@ const Template = ({ children }: { children: React.ReactNode }) => {
                   sx={{
                     my: 2,
                     display: "block",
+                    color: "white",
                     "&:hover": {
                       backgroundColor: "#424242",
                     },
