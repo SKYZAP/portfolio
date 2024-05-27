@@ -9,11 +9,11 @@ const Page = () => {
     <Box
       display={"flex"}
       sx={{
+        padding: 5,
         height: "100%",
         textAlign: "left",
         alignItems: "center",
         justifyContent: "center",
-        paddingX: 5,
       }}
     >
       <div style={{ display: "block" }}>
@@ -41,8 +41,15 @@ const Page = () => {
         <Button
           variant="contained"
           color="secondary"
-          sx={{ display: "flex", padding: 2, marginTop: 4, color: "white" }}
+          sx={{
+            display: "flex",
+            padding: 2,
+            marginTop: 4,
+            color: "white",
+            width: "30vw",
+          }}
           endIcon={<ArrowForward />}
+          href="/works"
         >
           Browse Works
         </Button>

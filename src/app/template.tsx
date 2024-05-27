@@ -73,7 +73,7 @@ const Template = ({ children }: { children: React.ReactNode }) => {
   return (
     <ThemeProvider theme={theme}>
       <AppBar position="static">
-        <Container maxWidth="xl">
+        <Container maxWidth="false" sx={{ marginLeft: "10px" }}>
           <Toolbar disableGutters>
             <Typography
               variant="h6"
@@ -161,7 +161,9 @@ const Template = ({ children }: { children: React.ReactNode }) => {
       <Box
         sx={{
           backgroundColor: "primary.main",
-          height: { xs: "93.9vh", md: "93.2vh" },
+          overflow: "hidden",
+          height: { xs: "100vh", md: "100vh" },
+          width: "100vw",
         }}
         alignItems="center"
       >

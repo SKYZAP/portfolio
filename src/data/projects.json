@@ -1,17 +1,51 @@
 [
   {
-    "title": "MiniShop",
-    "description": "E-commerce Platform",
-    "tech": ["Next.js", "Nest.js"]
+    "title": "Berd-Bot",
+    "year": "2020 - Present",
+    "shortDescription": "Discord Bot",
+    "longDescription": "A discord.js bot used for music playing, image editing and AI voice model training",
+    "tech": ["Nest.js", "Prisma ORM", "GraphQL", "Docker"]
   },
   {
-    "title": "Revue",
-    "description": "Social Media Platform",
-    "tech": ["Next.js", "Nest.js"]
+    "title": "i-PIMS",
+    "year": 2023,
+    "shortDescription": "Asset Management Website",
+    "longDescription": "An asset management software made for PETRONAS which includes asset listing, maintenance and repair.",
+    "tech": ["Angular", "ASP.NET", "EF Core", "Microservices"]
   },
   {
     "title": "LoopFoods",
-    "description": "Food Delivery WebApp",
-    "tech": ["tRPC", "Next.js", "Tailwind"]
+    "year": 2022,
+    "shortDescription": "Food Delivery WebApp",
+    "longDescription": "Grab-like application that allows users to order food for delivery, pickup and dine-in. Features support for catering as well as group ordering.",
+    "tech": ["tRPC", "Next.js", "Tailwind", "Nest.js", "Prisma ORM"]
+  },
+  {
+    "title": "Travel Curator",
+    "year": 2022,
+    "shortDescription": "Travel Planning Website",
+    "longDescription": "A website that lets people plan trips to Singapore and Japan. Features inclusive of itinerary generation, location suggestions and accomodations for specific needs.",
+    "tech": ["React.js", "Node.js", "Sequelize"]
+  },
+  {
+    "title": "Trace Sg",
+    "year": 2022,
+    "shortDescription": "Property Website",
+    "longDescription": "A property website that advertises their property development services alongside some examples of existing projects.",
+    "tech": ["Next.js", "Nest.js", "GraphQL", "TypeORM", "Docker"]
+  },
+  {
+    "title": "Revue",
+    "year": 2020,
+    "shortDescription": "Social Media Application",
+    "longDescription": "A social media platform similar to Instagram that allows users to add ratings, hashtags and images to their posts.",
+    "tech": ["Next.js", "Nest.js", "TypeORM", "GraphQL"]
+  },
+  {
+    "title": "MiniShop",
+    "shortDescription": "E-Commerce Platform",
+    "year": 2020,
+    "longDescription": "A website for business owners to list and manage their product catalogue. Users are also able to purchase products listed.",
+    "tech": ["Next.js", "Nest.js", "TypeORM", "GraphQL"]
   }
 ]
