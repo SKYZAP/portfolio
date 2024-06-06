@@ -115,6 +115,8 @@
 //   }
 // };
 
-export const HomeContainer = () => {};
+export const HomeContainer = () => {
+  return <div>test</div>;
+};
 
 export default HomeContainer;
