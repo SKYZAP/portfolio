@@ -27,6 +27,15 @@ const theme = createTheme({
       main: "#419D78",
     },
   },
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 900,
+      lg: 1200,
+      xl: 1920,
+    },
+  },
 });
 
 const pages = ["Home", "Works", "About"];
@@ -73,7 +82,7 @@ const Template = ({ children }: { children: React.ReactNode }) => {
   return (
     <ThemeProvider theme={theme}>
       <AppBar position="static">
-        <Container maxWidth="false" sx={{ marginLeft: "10px" }}>
+        <Container maxWidth="xl" sx={{ marginLeft: "10px" }}>
           <Toolbar disableGutters>
             <Typography
               variant="h6"
