@@ -7,8 +7,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { submitContactForm } from "@/app/actions/contact";
-
 interface FormData {
   name: string;
   email: string;
@@ -64,15 +62,15 @@ export function ContactForm() {
     setStatus("submitting");
     setServerError(undefined);
 
-    const result = await submitContactForm(formData);
-
-    if (result.success) {
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      console.log("Contact form submission:", formData);
       setStatus("success");
       setFormData({ name: "", email: "", message: "" });
       setTimeout(() => setStatus("idle"), 5000);
-    } else {
+    } catch {
       setStatus("error");
-      setServerError(result.error);
+      setServerError("Failed to send message. Please try again.");
       setTimeout(() => setStatus("idle"), 5000);
     }
   };
