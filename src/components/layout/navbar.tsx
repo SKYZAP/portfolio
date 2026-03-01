@@ -9,6 +9,7 @@ import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
+import { siteConfig } from "@/lib/data";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -42,7 +43,7 @@ export function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="font-semibold text-lg">
-            Portfolio
+            {siteConfig.siteName}
           </Link>
 
           {/* Desktop Navigation */}

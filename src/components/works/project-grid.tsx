@@ -31,10 +31,14 @@ export function ProjectGrid() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
         className="flex gap-1 mb-12 border-b border-border/50"
+        role="tablist"
+        aria-label="Filter projects by category"
       >
         {categories.map((category) => (
           <button
             key={category.value}
+            role="tab"
+            aria-selected={activeFilter === category.value}
             onClick={() => setActiveFilter(category.value)}
             className={cn(
               "px-4 py-3 text-sm font-medium transition-colors relative",
@@ -53,13 +57,13 @@ export function ProjectGrid() {
             )}
           </button>
         ))}
-        <div className="ml-auto text-sm text-muted-foreground self-center pr-4">
+        <div className="ml-auto text-sm text-muted-foreground self-center pr-4" aria-live="polite">
           {filteredProjects.length} project{filteredProjects.length !== 1 ? "s" : ""}
         </div>
       </motion.div>
 
       {/* Projects List */}
-      <div className="divide-y divide-border/50">
+      <div className="divide-y divide-border/50" role="tabpanel" aria-label={`${activeFilter === "all" ? "All" : categories.find(c => c.value === activeFilter)?.label} projects`}>
         <AnimatePresence mode="popLayout">
           {filteredProjects.map((project, index) => (
             <motion.div

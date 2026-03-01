@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { submitContactForm } from "@/app/actions/contact";
 
 interface FormData {
   name: string;
@@ -30,6 +31,7 @@ export function ContactForm() {
   });
   const [errors, setErrors] = useState<FormErrors>({});
   const [status, setStatus] = useState<FormStatus>("idle");
+  const [serverError, setServerError] = useState<string>();
 
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
@@ -60,14 +62,17 @@ export function ContactForm() {
     if (!validateForm()) return;
 
     setStatus("submitting");
+    setServerError(undefined);
 
-    try {
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+    const result = await submitContactForm(formData);
+
+    if (result.success) {
       setStatus("success");
       setFormData({ name: "", email: "", message: "" });
       setTimeout(() => setStatus("idle"), 5000);
-    } catch {
+    } else {
       setStatus("error");
+      setServerError(result.error);
       setTimeout(() => setStatus("idle"), 5000);
     }
   };
@@ -108,10 +113,16 @@ export function ContactForm() {
             onSubmit={handleSubmit}
             className="space-y-6"
           >
+            {serverError && (
+              <div className="p-3 rounded-lg bg-destructive/10 text-destructive text-sm">
+                {serverError}
+              </div>
+            )}
+
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="space-y-2">
                 <Label htmlFor="name" className="text-sm">
-                  Name {errors.name && <span className="text-destructive ml-1">· {errors.name}</span>}
+                  Name {errors.name && <span className="text-destructive ml-1">&middot; {errors.name}</span>}
                 </Label>
                 <Input
                   id="name"
@@ -126,7 +137,7 @@ export function ContactForm() {
 
               <div className="space-y-2">
                 <Label htmlFor="email" className="text-sm">
-                  Email {errors.email && <span className="text-destructive ml-1">· {errors.email}</span>}
+                  Email {errors.email && <span className="text-destructive ml-1">&middot; {errors.email}</span>}
                 </Label>
                 <Input
                   id="email"
@@ -143,7 +154,7 @@ export function ContactForm() {
 
             <div className="space-y-2">
               <Label htmlFor="message" className="text-sm">
-                Message {errors.message && <span className="text-destructive ml-1">· {errors.message}</span>}
+                Message {errors.message && <span className="text-destructive ml-1">&middot; {errors.message}</span>}
               </Label>
               <Textarea
                 id="message"

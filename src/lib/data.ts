@@ -1,21 +1,47 @@
-// Portfolio data - Replace with your own information
+export const siteConfig = {
+  name: "Izzat Zaib",
+  siteName: "Izzat Zaib",
+  url: "https://izzatzaib.dev",
+  description:
+    "Crafting digital experiences with code. Building digital products with attention to detail and a focus on what matters.",
+};
 
 export const personalInfo = {
   name: "Izzat Zaib",
+  firstName: "Izzat",
+  lastName: "Zaib",
   role: "Full Stack Developer",
   tagline: "Crafting digital experiences with code",
+  description:
+    "Building digital products with attention to detail and a focus on what matters.",
   email: "izzat.jehan@gmail.com",
   location: "Kuala Lumpur, Malaysia",
-  bio: `I'm a passionate full-stack developer with 4+ years of experience building 
-  modern web applications. I specialize in Java, React, Node.js, and cloud technologies.`,
+  yearsOfExperience: 4,
+  projectCount: 50,
+  bio: `I'm a passionate full-stack developer with 4+ years of experience building modern web applications. I specialize in Java, React, Node.js, and cloud technologies.`,
   resumeUrl: "/resume.pdf",
+  availability: {
+    status: "available" as const,
+    label: "Available for work",
+    description: "Open to freelance projects and full-time opportunities.",
+  },
 };
 
-export const socialLinks = {
-  github: "https://github.com/SKYZAP",
-  linkedin: "https://www.linkedin.com/in/izzat-zaib-7564351a0",
-  email: "mailto:izzat.jehan@gmail.com",
-};
+export interface SocialLink {
+  name: string;
+  href: string;
+  icon: "github" | "linkedin" | "mail";
+}
+
+export const socialLinks: SocialLink[] = [
+  { name: "GitHub", href: "https://github.com/SKYZAP", icon: "github" },
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/in/izzat-zaib-7564351a0",
+    icon: "linkedin",
+  },
+  { name: "Email", href: `mailto:${personalInfo.email}`, icon: "mail" },
+];
 
 export interface Project {
   id: string;
@@ -108,29 +134,30 @@ export const projects: Project[] = [
 
 export interface Skill {
   name: string;
-  level: number; // 0-100
+  level: number;
   category: "frontend" | "backend" | "tools" | "other";
+  featured?: boolean;
 }
 
 export const skills: Skill[] = [
-  // Frontend
-  { name: "React / Next.js", level: 80, category: "frontend" },
+  { name: "React / Next.js", level: 80, category: "frontend", featured: true },
   { name: "TypeScript", level: 80, category: "frontend" },
   { name: "Angular", level: 80, category: "frontend" },
-  // Backend
-  { name: "Node.js", level: 90, category: "backend" },
-  { name: "Java", level: 90, category: "backend" },
+  { name: "Node.js / NestJS", level: 90, category: "backend", featured: true },
+  { name: "Java", level: 90, category: "backend", featured: true },
   { name: "Python", level: 80, category: "backend" },
-  { name: "PostgreSQL", level: 90, category: "backend" },
-  { name: "MongoDB", level: 90, category: "backend" },
+  { name: "Go", level: 75, category: "backend", featured: true },
+  { name: "PostgreSQL", level: 90, category: "backend", featured: true },
+  { name: "MongoDB", level: 90, category: "backend", featured: true },
   { name: "GraphQL", level: 90, category: "backend" },
-  // Tools
   { name: "Git / GitHub", level: 95, category: "tools" },
-  { name: "Docker", level: 82, category: "tools" },
-  { name: "AWS", level: 75, category: "tools" },
+  { name: "Docker", level: 82, category: "tools", featured: true },
+  { name: "AWS", level: 75, category: "tools", featured: true },
   { name: "CI/CD", level: 85, category: "tools" },
   { name: "Figma", level: 70, category: "tools" },
 ];
+
+export const techStack = skills.filter((s) => s.featured);
 
 export interface Experience {
   id: string;
@@ -200,15 +227,4 @@ export const experiences: Experience[] = [
       "Wrote unit and integration tests for frontend code",
     ],
   },
-];
-
-export const techStack = [
-  { name: "Java", icon: "java" },
-  { name: "React / Next.js", icon: "react" },
-  { name: "Node.js / NestJS", icon: "nodejs" },
-  { name: "Go", icon: "go" },
-  { name: "PostgreSQL", icon: "postgresql" },
-  { name: "MongoDB", icon: "mongodb" },
-  { name: "Docker", icon: "docker" },
-  { name: "AWS", icon: "aws" },
 ];

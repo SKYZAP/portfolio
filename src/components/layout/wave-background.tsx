@@ -17,15 +17,12 @@ export function WaveBackground() {
 
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none" aria-hidden="true">
-      {/* Single subtle gradient wave */}
       <svg
         className="absolute bottom-0 left-0 w-[200%] h-[40%] opacity-30"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1440 320"
         preserveAspectRatio="none"
-        style={{
-          animation: "wave-drift 20s ease-in-out infinite",
-        }}
+        style={{ animation: "wave-drift 20s ease-in-out infinite" }}
       >
         <defs>
           <linearGradient id="wave-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -40,26 +37,14 @@ export function WaveBackground() {
         />
       </svg>
 
-      {/* Subtle ambient glow */}
       {isDark && (
-        <div 
+        <div
           className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] rounded-full blur-[150px] opacity-20"
           style={{
             background: "radial-gradient(ellipse, rgba(34, 197, 94, 0.3) 0%, transparent 70%)",
           }}
         />
       )}
-
-      <style jsx>{`
-        @keyframes wave-drift {
-          0%, 100% {
-            transform: translateX(0);
-          }
-          50% {
-            transform: translateX(-10%);
-          }
-        }
-      `}</style>
     </div>
   );
 }

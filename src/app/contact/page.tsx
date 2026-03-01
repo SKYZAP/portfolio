@@ -3,7 +3,7 @@ import { ContactForm } from "@/components/contact/contact-form";
 import { SocialLinks } from "@/components/contact/social-links";
 
 export const metadata: Metadata = {
-  title: "Contact | Portfolio",
+  title: "Contact",
   description: "Get in touch with me for collaborations, job opportunities, or just to say hello.",
 };
 

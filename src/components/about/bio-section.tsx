@@ -3,14 +3,13 @@
 import { motion } from "framer-motion";
 import { MapPin, Mail, Download, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { AvailabilityBadge } from "@/components/ui/availability-badge";
 import { personalInfo } from "@/lib/data";
 
 export function BioSection() {
   return (
     <section className="py-8">
-      {/* Asymmetric Two Column Layout */}
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
-        {/* Left: Main Bio - 60% */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -40,7 +39,6 @@ export function BioSection() {
           </motion.div>
         </motion.div>
 
-        {/* Right: Quick Facts - 40% */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -48,21 +46,10 @@ export function BioSection() {
           className="lg:col-span-2"
         >
           <div className="lg:sticky lg:top-24 space-y-6">
-            {/* Status Card */}
             <div className="p-6 rounded-2xl bg-primary/5 border border-primary/20">
-              <div className="flex items-center gap-2 mb-4">
-                <span className="relative flex h-2.5 w-2.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
-                </span>
-                <span className="text-sm font-medium">Available for work</span>
-              </div>
-              <p className="text-sm text-muted-foreground">
-                Open to freelance projects and full-time positions.
-              </p>
+              <AvailabilityBadge showDescription className="mb-0" />
             </div>
 
-            {/* Info Items */}
             <div className="space-y-4">
               <div className="flex items-start gap-3">
                 <div className="p-2 rounded-lg bg-muted">
@@ -80,7 +67,7 @@ export function BioSection() {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Email</p>
-                  <a 
+                  <a
                     href={`mailto:${personalInfo.email}`}
                     className="font-medium hover:text-primary transition-colors"
                   >
@@ -95,7 +82,7 @@ export function BioSection() {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Experience</p>
-                  <p className="font-medium">5+ years</p>
+                  <p className="font-medium">{personalInfo.yearsOfExperience}+ years</p>
                 </div>
               </div>
             </div>

@@ -32,32 +32,42 @@ export function SkillsSection() {
         className="mb-10"
       >
         <p className="text-sm text-muted-foreground font-mono mb-2">Expertise</p>
-        <h2 className="text-2xl sm:text-3xl font-bold">
-          Skills & Technologies
+        <h2 className="text-2xl sm:text-3xl">
+          Skills &amp; Technologies
         </h2>
       </motion.div>
 
-      {/* Skills as tag groups */}
       <div className="space-y-8">
         {(Object.keys(groupedSkills) as Skill["category"][]).map((category, categoryIndex) => (
           <motion.div
             key={category}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -16 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: categoryIndex * 0.1 }}
+            transition={{ duration: 0.4, delay: categoryIndex * 0.12 }}
           >
             <h3 className="text-sm font-medium text-muted-foreground mb-4">
               {categoryLabels[category]}
             </h3>
             <div className="flex flex-wrap gap-2">
-              {groupedSkills[category].map((skill) => (
-                <span
+              {groupedSkills[category].map((skill, skillIndex) => (
+                <motion.span
                   key={skill.name}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.3,
+                    delay: categoryIndex * 0.1 + skillIndex * 0.04,
+                    type: "spring",
+                    stiffness: 300,
+                    damping: 20,
+                  }}
+                  whileHover={{ scale: 1.08, y: -2 }}
                   className="px-4 py-2 rounded-full bg-muted hover:bg-primary/10 hover:text-primary transition-colors text-sm font-medium cursor-default"
                 >
                   {skill.name}
-                </span>
+                </motion.span>
               ))}
             </div>
           </motion.div>

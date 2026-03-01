@@ -8,12 +8,14 @@ import { projects } from "@/lib/data";
 function ProjectCard({ project, index }: { project: typeof projects[0]; index: number }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, y: 30, rotateX: 8 }}
+      whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      transition={{ duration: 0.6, delay: index * 0.15, ease: "easeOut" }}
+      whileHover={{ y: -4, transition: { duration: 0.2 } }}
+      style={{ perspective: 800 }}
     >
-      <div className="group h-full rounded-2xl bg-card/50 border border-border/50 hover:border-primary/30 transition-all duration-300 overflow-hidden">
+      <div className="group h-full rounded-2xl bg-card/40 backdrop-blur-sm border border-border/50 hover:border-primary/30 transition-all duration-300 overflow-hidden">
         {/* Project Visual */}
         <div className="relative h-56 bg-gradient-to-br from-muted to-muted/50 overflow-hidden">
           {/* Abstract visual */}
@@ -38,6 +40,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
               target="_blank"
               rel="noopener noreferrer"
               className="absolute top-4 right-4 p-2 rounded-full bg-background/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity hover:bg-primary hover:text-primary-foreground"
+              aria-label={`View ${project.title} live`}
             >
               <ArrowUpRight className="h-4 w-4" />
             </a>
@@ -75,14 +78,14 @@ export function FeaturedWorks() {
   const desktopProjects = featuredProjects.slice(0, 2);
 
   return (
-    <section className="py-24">
+    <section className="py-24 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           className="flex items-end justify-between mb-12"
         >
           <div>
@@ -102,10 +105,7 @@ export function FeaturedWorks() {
 
         {/* Mobile: Horizontal Scroll */}
         <div className="md:hidden -mx-4 px-4">
-          <div 
-            className="flex gap-4 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-          >
+          <div className="flex gap-4 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide">
             {featuredProjects.map((project, index) => (
               <div
                 key={project.id}

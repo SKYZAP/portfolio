@@ -4,7 +4,7 @@ import { SkillsSection } from "@/components/about/skills-section";
 import { ExperienceTimeline } from "@/components/about/experience-timeline";
 
 export const metadata: Metadata = {
-  title: "About | Portfolio",
+  title: "About",
   description: "Learn more about my background, skills, and professional experience as a software developer.",
 };
 

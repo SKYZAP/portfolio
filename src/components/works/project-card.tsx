@@ -12,9 +12,9 @@ interface ProjectRowProps {
 export function ProjectRow({ project, index }: ProjectRowProps) {
   return (
     <motion.article
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: index * 0.05 }}
+      initial={{ opacity: 0, x: -24 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.45, delay: index * 0.08, ease: "easeOut" }}
       className="group border-b border-border/50 last:border-b-0"
     >
       <div className="py-8 md:py-10 flex flex-col md:flex-row md:items-center gap-6 md:gap-8">

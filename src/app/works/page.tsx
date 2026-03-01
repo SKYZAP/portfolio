@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { ProjectGrid } from "@/components/works/project-grid";
 
 export const metadata: Metadata = {
-  title: "Works | Portfolio",
+  title: "Works",
   description: "Explore my portfolio of web development projects, mobile apps, and open source contributions.",
 };
 
@@ -12,7 +12,7 @@ export default function WorksPage() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
         {/* Page Header - Left aligned */}
         <div className="mb-16">
-          <p className="text-sm text-muted-foreground font-mono mb-2">Portfolio</p>
+          <p className="text-sm text-muted-foreground font-mono mb-2">Works</p>
           <h1 className="text-4xl sm:text-5xl font-bold mb-4">
             Selected Work
           </h1>
