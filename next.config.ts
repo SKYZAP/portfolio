@@ -10,7 +10,7 @@ const nextConfig: NextConfig = {
   assetPrefix: isProd ? `/${repoName}/` : "",
   images: { unoptimized: true },
   experimental: {
-    adapterPath: require.resolve("./build/adapter.js"),
+    adapterPath: require.resolve("./scripts/adapter.js"),
   },
 };
 
